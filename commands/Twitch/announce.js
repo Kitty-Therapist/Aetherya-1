@@ -44,10 +44,10 @@ class Announce extends Twitch {
         break;
       }
   
-      case 'lady': {
-        const role = 'Lady\'s Stream';
+      case 'rashaun': {
+        const role = 'Rashaun\'s Stream';
         const description = rawDescription.join(' ');
-        const streamURL = 'https://www.twitch.tv/ladylish';
+        const streamURL = 'https://www.twitch.tv/reshayshay';
         await this.streamEmbed(this.client, message, description, streamURL);
         const channel = message.guild.channels.find('name', streamChannel);
         const streamRole = await message.guild.roles.find('name', `${role}`);
@@ -74,6 +74,19 @@ class Announce extends Twitch {
         const role = 'Bananakin\'s Stream';
         const description = rawDescription.join(' ');
         const streamURL = 'https://www.twitch.tv/bananakin_skywalker';
+        await this.streamEmbed(this.client, message, description, streamURL);
+        const channel = message.guild.channels.find('name', streamChannel);
+        const streamRole = await message.guild.roles.find('name', `${role}`);
+        if (streamRole.mentionable === false) await streamRole.edit({ mentionable: true });
+        await channel.send(`${streamRole}`);
+        await streamRole.edit({ mentionable: false })
+
+        }
+  
+      case 'ghoul': {
+        const role = 'Ghoul\'s Stream';
+        const description = rawDescription.join(' ');
+        const streamURL = 'https://www.twitch.tv/ghoulishfantasy';
         await this.streamEmbed(this.client, message, description, streamURL);
         const channel = message.guild.channels.find('name', streamChannel);
         const streamRole = await message.guild.roles.find('name', `${role}`);
